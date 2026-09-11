@@ -1,0 +1,20 @@
+[
+  {
+    "scene_id": "SC-PNW-20240115",
+    "region": "pacific_nw",
+    "acquired_at": "2024-01-15T18:22:00Z",
+    "cloud_cover_pct": 18.2,
+    "sensor": "OLCI",
+    "bbox": [-124.5, 44.0, -121.0, 48.5],
+    "storage_uri": "file://data/test_data/scenes/SC-PNW-20240115.json"
+  },
+  {
+    "scene_id": "SC-SW-20240115",
+    "region": "southwest",
+    "acquired_at": "2024-01-15T19:04:00Z",
+    "cloud_cover_pct": null,
+    "sensor": "OLCI",
+    "bbox": [-115.0, 32.0, -109.0, 37.0],
+    "storage_uri": "file://data/test_data/scenes/SC-SW-20240115.json"
+  }
+]

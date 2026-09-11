@@ -1,0 +1,25 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word">
+<head>
+<meta charset="utf-8"/>
+<title>WeatherPredict — ReadMe</title>
+</head>
+<body>
+<h1>WeatherPredict</h1>
+<p>Climate-data intelligence platform for EarthScape Climate Agency.</p>
+<p>Generated 2026-09-12.</p>
+<h2>How to run</h2>
+<ol>
+<li>Install Python 3.11+ and MongoDB Community on localhost:27017.</li>
+<li>Create a venv, then <code>pip install -r requirements.txt</code>.</li>
+<li>Copy <code>.env.example</code> to <code>.env</code>.</li>
+<li>Run <code>python -m weatherpredict.seed --with-data --years 2 --train</code>.</li>
+<li>Run <code>streamlit run app.py</code> and open http://127.0.0.1:8501/.</li>
+</ol>
+<p>Demo accounts: admin / AdminPass123! (Administrator, all regions);
+analyst / AnalystPass123! (Analyst, pacific_nw only).</p>
+<h2>Assumptions</h2>
+<ol><li>MongoDB is available at mongodb://localhost:27017.</li><li>Climate history for demos is synthetic (python -m weatherpredict.seed --with-data), not a live satellite or agency feed. Satellite support is a metadata catalogue — no rasters are read.</li><li>Hadoop/HDFS/MapReduce, Tableau and Impala are out of scope for the local demo. Upgrade paths are in README.md and architecture.md.</li><li>Demo passwords are for local evaluation only.</li><li>Real-time ingestion is a manually triggered simulator, merged with batch history in one view.</li><li>No PII is stored beyond username, email and role. TLS is terminated at a reverse proxy in production.</li><li>99% uptime is an operational SLO of the host. python -m weatherpredict.health is the in-app probe.</li><li>The app is single-worker. Streamlit session state lives in one process.</li><li>Jupyter, RStudio and a specific IDE are suggested tooling in the brief, not deliverables.</li></ol>
+<p>Full documentation lives in README.md and the docs/ folder.</p>
+</body>
+</html>

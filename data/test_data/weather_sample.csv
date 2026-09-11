@@ -1,0 +1,6 @@
+station_id,region,observed_at,temp_c,precip_mm,humidity_pct,pressure_hpa,wind_ms,quality,source
+WX-PNW-01,pacific_nw,2024-01-15T00:00:00Z,4.2,1.1,82,,2.4,good,upload
+WX-PNW-01,pacific_nw,2024-01-16T00:00:00Z,3.8,,79,1012.1,1.8,good,upload
+WX-PNW-01,pacific_nw,2024-01-17T00:00:00Z,,0.0,88,1014.0,,incomplete,upload
+WX-SW-01,southwest,2024-01-15T00:00:00Z,18.4,0.0,22,1010.2,3.1,good,upload
+WX-SW-01,southwest,2024-01-16T00:00:00Z,19.1,0.2,25,,2.9,good,upload

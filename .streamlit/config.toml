@@ -1,0 +1,27 @@
+# WeatherPredict — EarthScape Climate Agency
+
+[theme]
+base = "light"
+primaryColor = "#0B3D5C"
+backgroundColor = "#F7F5F1"
+secondaryBackgroundColor = "#E7F2F8"
+textColor = "#14212B"
+linkColor = "#17628F"
+borderColor = "#D5E3EC"
+font = "sans-serif"
+headingFont = "sans-serif"
+baseFontSize = 16
+
+[server]
+headless = true
+port = 8501
+enableStaticServing = false
+maxUploadSize = 10
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
+showErrorDetails = true
+# Keep default sidebar nav. Setting this false also hides st.navigation().

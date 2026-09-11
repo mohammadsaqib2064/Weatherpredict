@@ -1,0 +1,6 @@
+sensor_id,region,metric,value,unit,observed_at,quality,source
+SEN-PNW-CO2,pacific_nw,co2_ppm,421.4,ppm,2024-01-15T06:00:00Z,good,upload
+SEN-PNW-SOIL,pacific_nw,soil_moisture,33.1,pct,2024-01-15T06:00:00Z,good,upload
+SEN-PNW-UV,pacific_nw,uv_index,,index,2024-01-15T06:00:00Z,incomplete,upload
+SEN-SW-CO2,southwest,co2_ppm,428.0,ppm,2024-01-15T06:00:00Z,good,upload
+SEN-SW-SOIL,southwest,soil_moisture,12.4,pct,2024-01-15T06:00:00Z,good,upload
