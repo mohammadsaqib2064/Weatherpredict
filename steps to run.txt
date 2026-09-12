@@ -1,0 +1,36 @@
+Steps to run WeatherPredict
+
+1. Install Python 3.10+ (tick Add python.exe to PATH)
+2. Install MongoDB and keep the MongoDB service Running (app will not work without it)
+3. Open PowerShell in the project folder (the folder that has app.py)
+
+    python -m venv .venv
+    .\.venv\Scripts\Activate.ps1
+
+    (If this is blocked, use: .\.venv\Scripts\activate.bat)
+    (You should see (.venv) in the prompt)
+
+4. Install packages
+
+    pip install -r requirements.txt
+
+5. Create config
+
+    copy .env.example .env
+
+6. Load demo data (takes 2–5 minutes)
+
+    python -m weatherpredict.seed --with-data --years 2 --train
+
+7. Start the app
+
+    streamlit run app.py
+
+8. Open http://127.0.0.1:8501
+
+Login
+  admin / AdminPass123!     (Administrator)
+  analyst / AnalystPass123! (Analyst — Pacific NW only)
+
+(If charts are empty, run step 6 again)
+(If port 8501 is busy: streamlit run app.py --server.port 8502)
