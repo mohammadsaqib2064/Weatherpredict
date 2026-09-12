@@ -8,7 +8,6 @@ pages/                 one module per screen
 weatherpredict/        domain package (auth, db, ml, batch, realtime, …)
 tests/                 pytest
 data/test_data/        curated ingest samples
-data/raw|processed|synthetic   runtime folders (.gitkeep only)
 ml_artifacts/          trained joblib + evaluation notes
 docs/                  guides, architecture, diagrams, compliance
 scripts/               submission packager

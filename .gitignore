@@ -23,14 +23,11 @@ debug-*.log
 *.pem
 secrets/
 
-# Data / ML artifacts (keep structure via .gitkeep)
-data/raw/*
-data/processed/*
-data/synthetic/*
-!data/**/.gitkeep
-!data/test_data/**
+# Runtime dumps (created on seed / batch / train)
+data/raw/
+data/processed/
+data/synthetic/
 ml_artifacts/*
-!ml_artifacts/.gitkeep
 !ml_artifacts/MODEL_EVALUATION.md
 !ml_artifacts/model_evaluation_report.json
 
