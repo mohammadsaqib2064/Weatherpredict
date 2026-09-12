@@ -36,13 +36,26 @@ _CSS = f"""
   --font-body: {t.FONT_BODY};
 }}
 
-html, body, .stApp {{ font-family: var(--font-body), "Source Sans", sans-serif; }}
+html, body, .stApp,
+[data-testid="stMarkdownContainer"],
+[data-testid="stWidgetLabel"],
+[data-testid="stHeader"],
+.stButton button,
+.stFormSubmitButton button,
+.stDownloadButton button,
+.stTextInput input,
+.stSelectbox,
+p, li, label, h1, h2, h3, h4, h5, h6 {{
+  font-family: var(--font-body) !important;
+  font-synthesis: none !important;
+  letter-spacing: 0;
+}}
 .stApp {{ background: var(--sand-50); color: var(--ink-900); }}
-/* Icon glyphs only */
+/* Icon glyphs only — never inherit the body stack or ligatures leak as words */
 [data-testid="stIconMaterial"],
 .material-symbols-rounded,
 .material-symbols-outlined {{
-  font-family: "Material Symbols Rounded", "Material Symbols Outlined", sans-serif !important;
+  font-family: "Material Symbols Rounded", "Material Symbols Outlined" !important;
   font-weight: 400 !important;
   letter-spacing: normal !important;
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24 !important;
@@ -50,10 +63,11 @@ html, body, .stApp {{ font-family: var(--font-body), "Source Sans", sans-serif; 
   -webkit-font-smoothing: antialiased;
 }}
 
-/* Headings */
+/* Headings — no negative tracking; no fake-bold stroke */
 h1, h2, h3, h4, .wp-display {{
   font-family: var(--font-display) !important;
-  letter-spacing: normal;
+  letter-spacing: 0 !important;
+  font-synthesis: none !important;
   color: var(--ocean-900);
   font-weight: 600;
 }}
@@ -101,10 +115,11 @@ section[data-testid="stSidebar"] [aria-current="page"] {{
 }}
 .wp-eyebrow {{
   font-size: var(--fs-12);
-  letter-spacing: 0.09em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-500);
   font-weight: 600;
+  font-synthesis: none;
   margin: 0 0 0.3rem;
 }}
 .wp-masthead h1 {{ margin: 0; font-size: var(--fs-40) !important; }}
@@ -124,10 +139,11 @@ section[data-testid="stSidebar"] [aria-current="page"] {{
 .wp-stat .wp-stat-label {{
   font-size: var(--fs-12);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: var(--ink-500);
   margin-bottom: 0.3rem;
   font-weight: 600;
+  font-synthesis: none;
 }}
 .wp-stat .wp-stat-value {{
   font-family: var(--font-display);
@@ -213,6 +229,8 @@ section[data-testid="stSidebar"] [aria-current="page"] {{
 .stButton > button, .stFormSubmitButton > button, .stDownloadButton > button {{
   font-family: var(--font-body);
   font-weight: 600;
+  font-synthesis: none;
+  letter-spacing: 0;
   font-size: var(--fs-14);
   border-radius: var(--radius);
   border: 1px solid rgba(11,61,92,0.28);
@@ -230,6 +248,9 @@ section[data-testid="stSidebar"] [aria-current="page"] {{
   background: var(--ocean-800); border-color: var(--ocean-800); color: #FFFFFF;
 }}
 div[data-testid="stDataFrame"], div[data-testid="stTable"] {{
+  font-family: var(--font-body);
+  font-synthesis: none;
+  letter-spacing: 0;
   font-variant-numeric: tabular-nums;
   border: 1px solid var(--line);
 }}

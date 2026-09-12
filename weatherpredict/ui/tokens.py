@@ -39,8 +39,8 @@ STATUS_COLORS = {
 }
 
 # --- type --------------------------------------------------------------------
-FONT_DISPLAY = '"Source Sans", sans-serif'
-FONT_BODY = '"Source Sans", sans-serif'
+FONT_DISPLAY = 'system-ui, "Segoe UI", sans-serif'
+FONT_BODY = 'system-ui, "Segoe UI", sans-serif'
 
 TYPE_SCALE = (12, 14, 16, 20, 24, 32, 40, 56)
 
