@@ -1,4 +1,4 @@
-# Byte-compiled / cache
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -8,25 +8,28 @@ __pycache__/
 venv/
 env/
 
-# Runtime residue
-db.sqlite3
-db.sqlite3-journal
-*.log
-logs/*.log
-debug-*.log
-
-# Editor
-.cursor/
-
-# Env / secrets
+# Secrets — never commit local config
 .env
+.env.*
+!.env.example
+.streamlit/secrets.toml
 *.pem
+*.key
 secrets/
 
-# Runtime dumps (created on seed / batch / train)
+# Runtime residue
+*.log
+debug-*.log
+logs/
+db.sqlite3
+db.sqlite3-journal
+*.sqlite3
+
+# Generated data and trained models
 data/raw/
 data/processed/
 data/synthetic/
+*.joblib
 ml_artifacts/*
 !ml_artifacts/MODEL_EVALUATION.md
 !ml_artifacts/model_evaluation_report.json
@@ -35,7 +38,8 @@ ml_artifacts/*
 backups/
 dist/
 
-# IDE / OS
+# Editor / OS
+.cursor/
 .idea/
 .vscode/
 .DS_Store

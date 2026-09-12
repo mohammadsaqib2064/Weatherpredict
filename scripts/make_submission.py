@@ -31,8 +31,8 @@ SKIP_DIR_NAMES = {
     "htmlcov",
     "node_modules",
 }
-SKIP_SUFFIXES = {".pyc", ".pyo", ".log"}
-SKIP_NAMES = {".env", "debug-a1cb32.log", "Thumbs.db"}
+SKIP_SUFFIXES = {".pyc", ".pyo", ".log", ".joblib", ".pem", ".key"}
+SKIP_NAMES = {".env", ".env.local", "secrets.toml", "debug-a1cb32.log", "Thumbs.db"}
 
 
 ASSUMPTIONS = [
