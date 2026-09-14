@@ -23,5 +23,6 @@ gatherUsageStats = false
 
 [client]
 toolbarMode = "minimal"
-showErrorDetails = true
-# Keep default sidebar nav. Setting this false also hides st.navigation().
+showErrorDetails = false
+# Hide the auto pages/ sidebar. Login + role nav use st.navigation() instead.
+showSidebarNavigation = false

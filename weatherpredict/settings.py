@@ -13,13 +13,29 @@ load_dotenv(BASE_DIR / ".env")
 
 def _int(name: str, default: int) -> int:
     try:
-        return int(os.getenv(name, str(default)))
+        return int(_str(name, str(default)))
     except ValueError:
         return default
 
 
-MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
-MONGODB_DB = os.getenv("MONGODB_DB", "weatherpredict")
+def _str(name: str, default: str) -> str:
+    """Read config from the process env, then Streamlit Cloud secrets."""
+    env = os.getenv(name)
+    if env and env.strip():
+        return env.strip()
+    try:
+        import streamlit as st
+
+        value = st.secrets.get(name)  # type: ignore[attr-defined]
+        if value:
+            return str(value).strip()
+    except Exception:
+        pass
+    return default
+
+
+MONGODB_URI = _str("MONGODB_URI", "mongodb://localhost:27017")
+MONGODB_DB = _str("MONGODB_DB", "weatherpredict")
 
 ARTIFACT_DIR = BASE_DIR / "ml_artifacts"
 DATA_DIR = BASE_DIR / "data"

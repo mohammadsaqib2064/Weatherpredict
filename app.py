@@ -12,14 +12,9 @@ st.set_page_config(
     page_title="WeatherPredict — EarthScape Climate Agency",
     page_icon=":material/globe_asia:",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 theme.inject()
-
-try:
-    ensure_indexes()
-except Exception:  # noqa: BLE001 — login page still has to render
-    pass
 
 if settings.MAINTENANCE_MESSAGE:
     st.warning(settings.MAINTENANCE_MESSAGE)
@@ -80,9 +75,18 @@ def render_login() -> None:
 
 user = session.current_user()
 if user is None:
-    theme._html("<style>[data-testid='stSidebar']{display:none!important;}</style>")
-    render_login()
+    # Must call st.navigation before stop — otherwise Streamlit lists every
+    # file in pages/ as a public sidebar (what Cloud was showing on first load).
+    st.navigation(
+        [st.Page(render_login, title="Sign in", default=True)],
+        position="hidden",
+    ).run()
     st.stop()
+
+try:
+    ensure_indexes()
+except Exception:  # noqa: BLE001 — console health will surface Mongo issues
+    pass
 
 
 # --- navigation --------------------------------------------------------------

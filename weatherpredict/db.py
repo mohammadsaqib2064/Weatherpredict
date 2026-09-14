@@ -36,17 +36,26 @@ APP_COLLECTIONS = (
 COLLECTIONS = CLIMATE_COLLECTIONS + APP_COLLECTIONS
 
 
+def _safe_mongo_uri(uri: str) -> str:
+    """Log host only — never the database password."""
+    try:
+        after = uri.split("@", 1)[1]
+        return after.split("?", 1)[0].rstrip("/")
+    except IndexError:
+        return "localhost"
+
+
 @lru_cache(maxsize=1)
 def get_client() -> MongoClient:
     client = MongoClient(
         settings.MONGODB_URI,
-        serverSelectionTimeoutMS=5000,
-        connectTimeoutMS=5000,
+        serverSelectionTimeoutMS=20000,
+        connectTimeoutMS=20000,
         # Datetimes come back UTC-aware so app code never mixes naive/aware values.
         tz_aware=True,
     )
     client.admin.command("ping")
-    logger.info("Connected to MongoDB at %s", settings.MONGODB_URI)
+    logger.info("Connected to MongoDB at %s", _safe_mongo_uri(settings.MONGODB_URI))
     return client
 
 
